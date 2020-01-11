@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group 'com.github.pdambrauskas'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 11
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.10.1'
+    implementation 'io.lettuce:lettuce-core:5.2.1.RELEASE'
+
+    implementation 'ch.qos.logback:logback-classic:1.2.3'
+    testImplementation 'org.testcontainers:testcontainers:1.12.3'
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+}
