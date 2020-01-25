@@ -127,14 +127,14 @@ END
 ## Java example
 
 I've also implemented Java App to illustrate how to use Redis Streams for Event Sourcing. I chose to use [lettuce](https://github.com/lettuce-io/lettuce-core) library for communication with Redis server.
-Source code of my implementation can be found on [Github](https://github.com/pdambrauskas/event-sourcing/event-sourcing-redis)
+Source code of my implementation can be found on [Github](https://github.com/pdambrauskas/event-sourcing/tree/master/event-sourcing-redis)
 
 There are three main classes:
-- EventStore - this class can be used for event publishing, and subscribing to Redis Streams.
-- SnapshotStore - this class can be used to store and retrieve snapshot objects from Redis.
-- StreamProcessor - combines EventStore and Snapshot store. You can supply multiple event handlers, which are used for building snapshots.
+- [EventStore](https://github.com/pdambrauskas/event-sourcing/blob/master/event-sourcing-redis/src/main/java/com/github/pdambrauskas/eventsourcing/redis/EventStore.java) - this class can be used for event publishing, and subscribing to Redis Streams.
+- [SnapshotStore](https://github.com/pdambrauskas/event-sourcing/blob/master/event-sourcing-redis/src/main/java/com/github/pdambrauskas/eventsourcing/redis/SnapshotStore.java) - this class can be used to store and retrieve snapshot objects from Redis.
+- [StreamProcessor](https://github.com/pdambrauskas/event-sourcing/blob/master/event-sourcing-redis/src/main/java/com/github/pdambrauskas/eventsourcing/redis/processing/StreamProcessor.java) - combines EventStore and Snapshot store. You can supply multiple event handlers, which are used for building snapshots.
 
-The whole combination of these classes can be found on RedisEventSourcingTest Unit test class.
+The whole combination of these classes can be found on [RedisEventSourcingTest](https://github.com/pdambrauskas/event-sourcing/blob/master/event-sourcing-redis/src/test/java/com/github/pdambrauskas/eventsourcing/redis/RedisEventSourcingTest.java) Unit test class.
 
 ## Conclusion
 While Redis Streams is relatively new concept, it is heavily inspired by Apache Kafka, and has many overlapping features. Also we mustn't forget that
